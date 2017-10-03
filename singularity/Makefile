@@ -1,7 +1,7 @@
 SINGULARITY = /usr/local/bin/singularity
 IMG_NAME = centrifuge-filter-0.0.1.img
 DEF_NAME = image.def
-SIZE = 512
+SIZE = 1024
 
 run:
 	sudo $(SINGULARITY) run $(IMG_NAME)

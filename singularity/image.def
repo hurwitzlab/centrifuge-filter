@@ -24,7 +24,7 @@ From: ubuntu:latest
     #
     cd $APP_DIR
     git clone https://github.com/hurwitzlab/centrifuge-filter.git
-    python3 -m pip install -r /app/mash/scripts/requirements.txt
+    python3 -m pip install -r /app/centrifuge-filter/scripts/requirements.txt
 
     #
     # Mount points for TACC directories
