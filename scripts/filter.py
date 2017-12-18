@@ -196,8 +196,9 @@ def main():
     for seq in SeqIO.parse(fasta_file, 'fasta'):
         tax_id = seq_to_tax.get(seq.id, '')
 
-        if not tax_id:
+        if not tax_id.isdigit() or int(tax_id) < 1:
             continue
+        species_name = id_to_name.get(tax_id, 'NA')
 
         if tax_id in exclude_ids:
             num_skipped += 1
@@ -206,7 +207,7 @@ def main():
                 print('{:5d}: SKIP {} = {} ({})'.format(num_skipped,
                                                         seq.id,
                                                         tax_id,
-                                                        id_to_name[tax_id]))
+                                                        species_name))
 
             if exclude_fh:
                 SeqIO.write(seq, exclude_fh, 'fasta')
@@ -218,7 +219,7 @@ def main():
                 print('{:5d}: TAKE {} = {} ({})'.format(num_taken,
                                                         seq.id,
                                                         tax_id,
-                                                        id_to_name[tax_id]))
+                                                        species_name))
 
             if take_fh:
                 SeqIO.write(seq, take_fh, "fasta")
