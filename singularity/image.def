@@ -2,7 +2,7 @@ BootStrap: docker
 From: ubuntu:latest
 
 %environment
-    PATH=/app/centrifuge-filter/scripts
+    PATH=/app/centrifuge-filter/scripts:$PATH
 
 %runscript
     exec /app/centrifuge-filter/scripts/filter.py "$@"

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 """Classify and segregate reads using Centrifuge"""
 
 import argparse
@@ -11,8 +12,10 @@ from Bio import SeqIO
 # --------------------------------------------------
 def get_args():
     """get args"""
-    parser = argparse.ArgumentParser(description=
-                                     'Filter FASTA with Centrifuge')
+    parser = argparse.ArgumentParser(
+        description='Filter FASTA with Centrifuge',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
     parser.add_argument('-v',
                         '--verbose',
                         action='store_true',
